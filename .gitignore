@@ -132,3 +132,4 @@ dmypy.json
 venvpj1/
 secret_key.txt
 __pycache__
+migrations/
