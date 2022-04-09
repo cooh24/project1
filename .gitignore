@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# user add jjm
+venvpj1/
+secret_key.txt
+__pycache__
