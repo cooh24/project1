@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Post, Category, Tag
 
 # Create your views here.
@@ -41,6 +42,21 @@ class PostDetail(DetailView):
 #     post = Post.objects.get(pk=pk)
 
 #     return render(request, 'classnote/single_post_page.html', {'post':post,})
+
+# post 생성 페이지 클래스 생성
+class PostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+    model = Post
+    fields = ['title', 'hook_text', 'content', 'head_image', 'file_upload', 'category']
+
+    def test_func(self):
+        return self.request.user.is_superuser or self.request.user.is_staff
+    def form_valid(self, form):
+        current_user = self.request.user
+        if current_user.is_authenticated and (current_user.is_staff or current_user.is_superuser):
+            form.instance.author = current_user
+            return super(PostCreate, self).form_valid(form)
+        else:
+            return redirect('/classnote/')
 
 #카테고리 페이지를 만드는 함수생성
 def category_page(request, slug):
