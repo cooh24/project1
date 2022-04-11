@@ -1,4 +1,4 @@
-# from django.shortcuts import render
+from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import Post, Category
 
@@ -14,6 +14,7 @@ class PostList(ListView):
         context['categories'] = Category.objects.all()
         context['no_category_post_count'] = Post.objects.filter(category=None).count()
         return context
+
     # template_name = 'classnote/index.html'    # 직접 지정
     # ListView는 모델명뒤에 '_list'가 붙는 html파일을 기본템플릿으로 사용 / Post모델 : post_list
 
@@ -40,3 +41,20 @@ class PostDetail(DetailView):
 #     post = Post.objects.get(pk=pk)
 
 #     return render(request, 'classnote/single_post_page.html', {'post':post,})
+
+def category_page(request, slug):
+    if slug == 'no_category':
+        category = '미분류'
+        post_list = Post.objects.filter(category=None)
+    else:
+        category = Category.objects.get(slug=slug)
+        post_list = Post.objects.filter(category=category)
+
+    return render(request, 'classnote/post_list.html',
+        {
+            'post_list' : post_list,
+            'categories' : Category.objects.all(),
+            'no_category_post_count' : Post.objects.filter(category=None).count(),
+            'category' : category,
+        }
+    )
