@@ -6,6 +6,7 @@ class Post(models.Model):
     content = models.TextField()
 
     head_image = models.ImageField(upload_to='classnote/images/%Y/%m/%d/', blank=True)
+    file_upload = models.FileField(upload_to='classnote/files/%Y/%m/%d/', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)    #업데이트필드(시간자동입력) 생성
 
