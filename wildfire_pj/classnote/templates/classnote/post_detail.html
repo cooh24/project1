@@ -6,9 +6,6 @@
 
 {% block main_area %}
     <!-- Page content-->
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-lg-8">
                 <div id="post-area">
                     {% if post.category %}
                         <span class="badge badge-secondary float-right">{{ post.category }}</span>
@@ -28,6 +25,10 @@
                                 <a href="#">{{ post.author | upper }}</a>
                             </p>
                             <hr>
+
+                            {% if user.is_authenticated and user == post.author %}
+                                <a class="btn btn-info btn-sm float-right" href="/classnote/update_post/{{ post.pk }}/" role="button"><i class="fas fa-pen"></i>    Edit Post</a>
+                            {% endif %}
                             <!-- Post meta content-->
                             <div class="text-muted fst-italic mb-2">{{ post.created_at }}</div>
                             <hr>
@@ -118,7 +119,4 @@
                         </div>
                     </section>
                 </div>
-            </div>
-        </div>
-    </div>
 {% endblock %}
