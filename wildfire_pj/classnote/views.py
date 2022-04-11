@@ -1,6 +1,6 @@
 # from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import Post
+from .models import Post, Category
 
 # Create your views here.
 
@@ -8,6 +8,12 @@ from .models import Post
 class PostList(ListView):
     model = Post
     ordering = '-pk'
+    
+    def get_context_data(self, **kwargs):
+        context = super(PostList, self).get_context_data()
+        context['categories'] = Category.objects.all()
+        context['no_category_post_count'] = Post.objects.filter(category=None).count()
+        return context
     # template_name = 'classnote/index.html'    # 직접 지정
     # ListView는 모델명뒤에 '_list'가 붙는 html파일을 기본템플릿으로 사용 / Post모델 : post_list
 
