@@ -28,6 +28,12 @@ class PostList(ListView):
 # post 상세페이지를 DetailView로 클래스생성 / single_post_page 함수 대체
 class PostDetail(DetailView):
     model = Post
+
+    def get_context_data(self, **kwargs):
+        context = super(PostDetail, self).get_context_data()
+        context['categories'] = Category.objects.all()
+        context['no_category_post_count'] = Post.objects.filter(category=None).count()
+        return context
     
 # single_post_page에 id=pk 값에 해당하는 포스트를 불러오는 함수 생성
 # def single_post_page(request, pk):
