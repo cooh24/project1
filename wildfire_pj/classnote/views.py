@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.utils.text import slugify
 from .models import Post, Category, Tag
 from django.core.exceptions import PermissionDenied
 
@@ -55,14 +56,30 @@ class PostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
         current_user = self.request.user
         if current_user.is_authenticated and (current_user.is_staff or current_user.is_superuser):
             form.instance.author = current_user
-            return super(PostCreate, self).form_valid(form)
+            response = super(PostCreate, self).form_valid(form)
+
+            tags_str = self.request.POST.get('tags_str')
+            if tags_str:
+                tags_str = tags_str.strip()
+
+                tags_str = tags_str.replace(',',';')
+                tags_list = tags_str.split(';')
+
+                for t in tags_list:
+                    t = t.strip()
+                    tag, is_tag_created = Tag.objects.get_or_create(name=t)
+                    if is_tag_created:
+                        tag.slug = slugify(t, allow_unicode=True)
+                        tag.save()
+                    self.object.tags.add(tag)
+            return response
         else:
             return redirect('/classnote/')
 
 # post 업데이트 페이지 클래스 생성
 class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
-    field = ['title', 'hook_text', 'content', 'head_image', 'file_upload', 'category', 'tags']
+    fields = ['title', 'hook_text', 'content', 'head_image', 'file_upload', 'category',]
 
     template_name = 'classnote/post_update_form.html'
 
@@ -72,6 +89,19 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
         else:
             raise PermissionDenied
 
+    def get_context_data(self, **kwargs):
+        context = super(PostUpdate, self).get_context_data()
+        if self.object.tags.exists():
+            tags_str_list = list()
+            for t in self.object.tags.all():
+                tags_str_list.append(t.name)
+            context['tags_str_default'] = '; '.join(tags_str_list)
+        return context
+
+    def form_valid(self, form):
+        response = super(PostUpdate, self).form_valid(form)
+        # 수정을 위한 PostUpdate 객체의 데이터에서 tags 속성의 값을 저장해놓은 것을 제거하기 위함 -> 새로 입력된 tags 값을 다시 추가를 하기 때문에
+        self.object.tags.clear()
 
 #카테고리 페이지를 만드는 함수생성
 def category_page(request, slug):
