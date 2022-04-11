@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 import os
 
 # Create your models here.
@@ -11,10 +12,11 @@ class Post(models.Model):
     file_upload = models.FileField(upload_to='classnote/files/%Y/%m/%d/', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)    #업데이트필드(시간자동입력) 생성
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     # 포스트 생성시, '[id] title' 표현하도록 함
     def __str__(self):
-        return f'[{self.pk}] {self.title}'
+        return f'[{self.pk}] {self.title} :: {self.author}'
     # post 주소
     def get_absolute_url(self):
         return f'/classnote/{self.pk}/'
