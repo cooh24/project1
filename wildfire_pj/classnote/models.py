@@ -11,3 +11,6 @@ class Post(models.Model):
     # 포스트 생성시, '[id] title' 표현하도록 함
     def __str__(self):
         return f'[{self.pk}] {self.title}'
+
+    def get_absolute_url(self):
+        return f'/classnote/{self.pk}/'
