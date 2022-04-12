@@ -44,8 +44,15 @@ INSTALLED_APPS = [
     'markdownx',
     'crispy_forms',
     'django_extensions',
+    #pip ex, 소셜로그인 관련
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
     #apps
+    'portfolio',
     'classnote',
     'single_page',
 ]
@@ -152,5 +159,16 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID = 1
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'     #이메일 검증기능
 #로그인 처리 성공후, 이동하는 위치(path)
 LOGIN_REDIRECT_URL = '/'

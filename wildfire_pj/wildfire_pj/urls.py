@@ -20,9 +20,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('portfolio/', include('portfolio.urls')),
     path('classnote/', include('classnote.urls')),
     path('admin/', admin.site.urls),
     path('markdownx/', include('markdownx.urls')),
+    path('accounts/', include('allauth.urls')),
     path('', include('single_page.urls')),
 ]
 
