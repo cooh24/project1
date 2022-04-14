@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+{% load static %}
 <!--
 	Hyperspace by HTML5 UP
 	html5up.net | @ajlkn
@@ -9,18 +10,19 @@
 		<title>port1_reactive web page</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="icon" href="{% static 'single_page/images/favicon.ico'}" type="image/x-icon">
+		<link rel="stylesheet" href="{% static 'single_page/css/main.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'single_page/css/noscript.css' %}" /></noscript>
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<header id="header">
-				<a href="index.html" class="title">Vision</a>
+				<a href="../../" class="title">Vision</a>
 				<nav>
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="index.html#one" class="active">Portpolio</a></li>
+						<li><a href="../../">Home</a></li>
+						<li><a href="../../#one" class="active">Portpolio</a></li>
 						<!-- <li><a href="elements.html">Elements</a></li> -->
 					</ul>
 				</nav>
@@ -33,7 +35,7 @@
 					<section id="main" class="wrapper">
 						<div class="inner">
 							<h1 class="major">실습 웹페이지</h1>
-							<span class="image fit"><a href="./assets/reactive web page/index.html"><img src="images/react_webpage.png" alt="" /></a></span>
+							<span class="image fit"><a href="./assets/reactive web page/index.html"><img src="{% static 'single_page/images/react_webpage.png' %}" alt="" /></a></span>
 							<p>처음 만든 웹페이지를 통해서 실습 결과물을 게시</p>
 							<p>디지털 명함을 실습하면서 css 레이아웃과 링크구조를 작성하는 법을 실습</p>
 							<p>반응형 웹페이지가 어떻게 실행되는지 알아보고 실습</p>

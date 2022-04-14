@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
 
     #apps
+    'dashboard',
     'portfolio',
     'classnote',
     'single_page',

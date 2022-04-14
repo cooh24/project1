@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+{% load static %}
 <!--
 	Hyperspace by HTML5 UP
 	html5up.net | @ajlkn
@@ -9,18 +10,19 @@
 		<title>port3_reactive web gallary</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="icon" href="{% static 'single_page/images/favicon.ico'}" type="image/x-icon">
+		<link rel="stylesheet" href="{% static 'single_page/css/main.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'single_page/css/noscript.css' %}" /></noscript>
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<header id="header">
-				<a href="index.html" class="title">Vision</a>
+				<a href="../../" class="title">Vision</a>
 				<nav>
 					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="index.html#one" class="active">Portpolio</a></li>
+						<li><a href="../../">Home</a></li>
+						<li><a href="../../#one" class="active">Portpolio</a></li>
 						<!-- <li><a href="elements.html">Elements</a></li> -->
 					</ul>
 				</nav>
@@ -33,7 +35,7 @@
 					<section id="main" class="wrapper">
 						<div class="inner">
 							<h1 class="major">반응형 웹 갤러리</h1>
-							<span class="image fit"><a href="./assets/reactive web gallary/index.html"><img src="images/react_webgallary.png" alt="" /></a></span>
+							<span class="image fit"><a href="./assets/reactive web gallary/index.html"><img src="{% static 'single_page/images/react_webgallary.png' %}" alt="" /></a></span>
 							<p>jquery를 활용한 반응형 웹 갤러리</p>
 							<p>jquery를 활용하여 isotope 형태의 갤러리 형태 구현 실습</p>
 							<p>jquery를 활용하여 popup형태의 갤러리 형태 구현 실습</p>
