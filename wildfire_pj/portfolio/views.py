@@ -10,3 +10,5 @@ def port3(request):
     return render(request, 'portfolio/port3.html',)
 def port4(request):
     return render(request, 'portfolio/port4.html',)
+def port5(request):
+    return render(request, 'portfolio/port5.html',)

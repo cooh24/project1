@@ -10,24 +10,52 @@ from django.db import models
 # The error was: (1146, "Table 'wildfireDB.table' doesn't exist")
 
 
-class Wildfire(models.Model):
-    ocurdt_y = models.CharField(max_length=4, blank=True, null=True)
-    ocurdt_m = models.CharField(max_length=2, blank=True, null=True)
-    ocurdt_d = models.CharField(max_length=2, blank=True, null=True)
-    ocurdo = models.CharField(max_length=2, blank=True, null=True)
-    ocursgg = models.CharField(max_length=8, blank=True, null=True)
-    exintgtm = models.IntegerField(blank=True, null=True)
-    ocurcause = models.TextField(blank=True, null=True)
-    dmgarea = models.FloatField(blank=True, null=True)
-    dmgmoney = models.FloatField(blank=True, null=True)
-    tempavg = models.FloatField(blank=True, null=True)
-    humidcurr = models.FloatField(blank=True, null=True)
-    humidrel = models.FloatField(blank=True, null=True)
-    windavg = models.FloatField(blank=True, null=True)
-    diravg = models.CharField(max_length=4, blank=True, null=True)
+# class Wildfire(models.Model):
+#     ocurdt_y = models.CharField(max_length=4, blank=True, null=True)
+#     ocurdt_m = models.CharField(max_length=2, blank=True, null=True)
+#     ocurdt_d = models.CharField(max_length=2, blank=True, null=True)
+#     ocurdo = models.CharField(max_length=2, blank=True, null=True)
+#     ocursgg = models.CharField(max_length=8, blank=True, null=True)
+#     exintgtm = models.IntegerField(blank=True, null=True)
+#     ocurcause = models.TextField(blank=True, null=True)
+#     dmgarea = models.FloatField(blank=True, null=True)
+#     dmgmoney = models.FloatField(blank=True, null=True)
+#     tempavg = models.FloatField(blank=True, null=True)
+#     humidcurr = models.FloatField(blank=True, null=True)
+#     humidrel = models.FloatField(blank=True, null=True)
+#     windavg = models.FloatField(blank=True, null=True)
+#     diravg = models.CharField(max_length=4, blank=True, null=True)
+#     riskavg = models.FloatField(blank=True, null=True)
+#     riskmax = models.FloatField(blank=True, null=True)
 
-    class Meta:
-        db_table = 'wildfire'
+#     class Meta:
+#         db_table = 'wildfire'
+
+#     def __str__(self):
+#         return f'{self.ocurdt_y}{self.ocurdt_m}{self.ocurdt_d}--{self.ocurdo}{self.dmgarea}'
+
+    
+class WildFire_day(models.Model):
+    year = models.CharField(max_length=4, blank=True, null=True)
+    day = models.CharField(max_length=4, blank=True, null=True)
+    count = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
-        return f'{self.ocurdt_y}{self.ocurdt_m}{self.ocurdt_d}--{self.ocurdo}{self.dmgarea}'
+        return f'{self.year}{self.day}::{self.count}'
+
+class WildFire_time(models.Model):
+    year = models.CharField(max_length=4, blank=True,null=True)
+    time = models.CharField(max_length=20, blank=True,null=True)
+    count = models.IntegerField(blank=True,null=True)
+
+    def __str__(self):
+        return f'{self.year}{self.time}::{self.count}'
+
+class MonthCause(models.Model):
+    year = models.CharField(max_length=4, blank=True, null=True)
+    month = models.CharField(max_length=8, blank=True, null=True)
+    cause = models.CharField(max_length=20, blank=True, null=True)
+    count = models.IntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.year}{self.month}::{self.cause}'

@@ -22,14 +22,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = ''
-with open(os.path.join(BASE_DIR, '', 'wildfire_pj/secret_key.txt')) as f:
-    SECRET_KEY = f.read().strip()
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-p4+5$2(^*@la(&wac2h2^6vv=@dd!cawbxtpv6@v-#h_wz!hdw')
+# with open(os.path.join(BASE_DIR, '', 'wildfire_pj/secret_key.txt')) as f:
+#     SECRET_KEY = f.read().strip()
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+# DEBUG = True
+DEBUG = int(os.environ.get('DEBUG', 1))
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+if os.environ.get('DJANGO_ALLOWED_HOSTS'):
+    ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS').split(' ')
+else:
+    ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -86,7 +92,7 @@ TEMPLATES = [
         },
     },
 ]
-
+# web service gateway interface
 WSGI_APPLICATION = 'wildfire_pj.wsgi.application'
 
 
@@ -99,6 +105,7 @@ WSGI_APPLICATION = 'wildfire_pj.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -109,6 +116,18 @@ DATABASES = {
         'PORT' : '3306', 
     }
 }
+
+#실제로는 envs폴더의 .env.dev의 값을 불러오기 때문에 뒤쪽에 있는 것은 상관없다.
+# DATABASES = {
+#     'default': {
+#         'ENGINE': os.environ.get('SQL_ENGINE', 'django.db.backends.sqlite3'),
+#         'NAME': os.environ.get('SQL_DATABASE', os.path.join(BASE_DIR / 'db.sqlite3')),
+#         'USER': os.environ.get('SQL_USER', 'user'),
+#         'PASSWORD': os.environ.get('SQL_PASSWORD', 'password'),
+#         'HOST': os.environ.get('SQL_HOST', 'localhost'),
+#         'PORT': os.environ.get('SQL_PORT', '5432')  
+#     }
+# }
 pymysql.install_as_MySQLdb()
 
 # Password validation
@@ -150,7 +169,9 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = os.path.join(BASE_DIR, '_static')
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '_media')
