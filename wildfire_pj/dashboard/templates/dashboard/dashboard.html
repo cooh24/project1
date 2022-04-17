@@ -1,5 +1,5 @@
 {% extends 'classnote/base_full_width.html' %}
-
+{% load static%}
 
 <html lang="ko">
 <head>
@@ -7,16 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'classnote/css/classnote-post.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 
 {% block main_area %}
 <body>
     <h1>산불발생 데이터 분석</h1>
+
     <!-- {% for data in time_data %} {{ data.time }}, {% endfor %} -->
 <!-- {% for data in time_data %} {{ data.sum }}, {% endfor %} -->
 
     <div class="row mt-3 pt-3">
+        <h2>주제선정배경</h2>
+        <p>최근 5 년간 산불로 인한 피해가 급증하면서,  실제로 
+            강원도 일대의 산불 등 가까운 곳에서 발생하는 것을 
+            지켜보며 단순한 사회문제가 아닌 실제 우리의 삶의 터전에 
+            위험이 될 수 있다는 경각심을 가지게 되었다.  그래서 산불 
+            데이터들을 분석하여 산불의 원인을 알아보고 산불을 
+            예방할 수 있는 인사이트를 도출하고자 하였다.</p>
         <div class="col-md-8" id="chart-wrapper">
             <div class="col-md-12" id="causeChart_div" style="display:block">
                 <canvas id="causeChart1" width="500" height="300"></canvas>
@@ -31,19 +40,34 @@
                 <canvas id="timeChart4" width="500" height="300"></canvas>
             </div>
         </div>
-        <div class="col-md-3">
+        <hr/>
+        <div class="col-md-4">
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                 <div class="btn-group mr-2" role="group" aria-label="First group" id="button-wrapper">
-                  <button type="button" onclick="clickbtn1()" class="btn btn-secondary" id="causeChart_btn">1</button>
-                  <button type="button" onclick="clickbtn2()" class="btn btn-secondary" id="monthChart_btn">2</button>
-                  <button type="button" onclick="clickbtn3()" class="btn btn-secondary" id="dayChart_btn">3</button>
-                  <button type="button" onclick="clickbtn4()" class="btn btn-secondary"id="timeChart_btn">4</button>
+                  <button type="button" onclick="clickbtn1()" class="btn btn-secondary" id="causeChart_btn">원인별</button>
+                  <button type="button" onclick="clickbtn2()" class="btn btn-secondary" id="monthChart_btn">월별</button>
+                  <button type="button" onclick="clickbtn3()" class="btn btn-secondary" id="dayChart_btn">요일별</button>
+                  <button type="button" onclick="clickbtn4()" class="btn btn-secondary"id="timeChart_btn">시간대별</button>
                 </div>
             </div>
             <br/>
-            <div id="causeChart_exp" style="display:none">산불발생의 원인에 따른 산불발생 횟수 표현</div>
+            <div id="causeChart_exp" style="display:block">2016년~2020년까지 5년간 산불원인에 대하여 데이터를 분석해보았다. 이 가운데 산불 발생 원인으로 가장 큰 것은 입산자 산불로 5년간 2852건 중 915건으로 전체의 약32%에 해당한다. 이러한 입산자 산불의 경우 자연발화 산불과는 달리 사람에 의한 산불로써 효과적인 대응방안을 통하여 충분히 예방이 가능한 산불이라고 생각한다. 따라서 입산자 산불이 일어나는 것을 제한하고 통제할 수 있다면 산불의 피해를 근본적으로 차단할 수 있는 방법이 되리라 생각한다.</div>
+            <div id="monthChart_exp" style="display:none">2016년~2020년까지 5년간 월별 산불발생횟수에 대하여 데이터를 분석해보았다. 산불은 3~4월 가장 많이 발생하고 5~9월 점차 줄어드는 추세를 보이다 10월~3월까지 꾸준하게 증가하는 양상을 보인다.</div>
+            <div id="dayChart_exp" style="display:none">2016년~2020년까지 5년간 요일별 산불발생횟수에 대하여 데이터를 분석해보았다. 크게 차이가 나는 부분은 없으나, 대체로 주말인 토요일, 일요일에 발생횟수가 많이 나타나는 것을 확인할 수 있다.</div>
+            <div id="timeChart_exp" style="display:none">2016년~2020년까지 5년간 시간대별 산불발생횟수에 대하여 데이터를 분석해보았다. 오후(14~18시)시간에 가장 발생횟수가 높으며, 정오(11시~13시)에도 오전(6~10시)와 야간(19~05시)와 비교해 확연하게 차이가 있는 것으로 보인다.</div>
         </div>
     </div>
+    <h3>산불발생의 가장 큰 요인</h3>
+    <div class="row">
+        <div class="col center"><h5>산불발생원인</h5> - 입산자 실화</div>
+        <div class="col"><h5>월별산불발생횟수</h5> - 3~4월</div>
+        <div class="col"><h5>요일별산불발생횟수</h5> - 주말(토,일)</div>
+        <div class="col"><h5>시간대별산불발생횟수</h5> - 오후(14~18시)</div>
+    </div>
+    <hr/>
+    <h3>결론</h3>
+    <p> 산불 데이터를 분석하며 산불발생의 주 원인은 입산자로 인한 실화로 발생하며, 입산자들이 많이 방문하게 되는 3~4월, 주말, 점심시간대 전후로 산불화재가 많이 발생하고 있다는 결론을 도출하게 되었다. 이러한 것을 통하여, 입산자들이 많이 몰리는 월,요일,시간대에 산불지킴이등 감시할 수 있는 자원을 투입하거나, 산불예방캠페인등 산불에 대한 경각심을 전달할 수 있는 홍보를 통해 우리가 활용할 수 있는 자원들을 적재적소에 집중할 수 있는 방안이 되리라 생각해본다.</p>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>    
@@ -69,16 +93,20 @@
             'rgba(54, 162, 235, 0.2)',
             'rgba(255, 206, 86, 0.2)',
             'rgba(75, 192, 192, 0.2)',
-            // 'rgba(153, 102, 255, 0.2)',
-            // 'rgba(255, 159, 64, 0.2)'
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(221, 160, 221, 0.2)',
+            'rgba(100, 100, 100, 0.2)'
         ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
-                // 'rgba(153, 102, 255, 1)',
-                // 'rgba(255, 159, 64, 1)'
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(221, 160, 221, 1)',
+                'rgba(100, 100, 100, 1)'
             ],
                 borderWidth: 1
             }]
@@ -109,16 +137,16 @@
             'rgba(54, 162, 235, 0.2)',
             'rgba(255, 206, 86, 0.2)',
             'rgba(75, 192, 192, 0.2)',
-            // 'rgba(153, 102, 255, 0.2)',
-            // 'rgba(255, 159, 64, 0.2)'
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
         ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
-                // 'rgba(153, 102, 255, 1)',
-                // 'rgba(255, 159, 64, 1)'
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
             ],
                 borderWidth: 1
             }]
@@ -149,16 +177,20 @@
             'rgba(54, 162, 235, 0.2)',
             'rgba(255, 206, 86, 0.2)',
             'rgba(75, 192, 192, 0.2)',
-            // 'rgba(153, 102, 255, 0.2)',
-            // 'rgba(255, 159, 64, 0.2)'
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(221, 160, 221, 0.2)',
+            'rgba(100, 100, 100, 0.2)'
         ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)',
-                // 'rgba(153, 102, 255, 1)',
-                // 'rgba(255, 159, 64, 1)'
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(221, 160, 221, 1)',
+            'rgba(100, 100, 100, 1)'
             ],
                 borderWidth: 1
             }]
@@ -217,26 +249,41 @@
         document.getElementById("causeChart_div").style.display = "block";
         document.getElementById("causeChart_exp").style.display = "block";
         document.getElementById("monthChart_div").style.display = "none";
+        document.getElementById("monthChart_exp").style.display = "none";
         document.getElementById("dayChart_div").style.display = "none";
+        document.getElementById("dayChart_exp").style.display = "none";
         document.getElementById("timeChart_div").style.display = "none";
+        document.getElementById("timeChart_exp").style.display = "none";
     }
     function clickbtn2(){
         document.getElementById("causeChart_div").style.display = "none";
+        document.getElementById("causeChart_exp").style.display = "none";
         document.getElementById("monthChart_div").style.display = "block";
+        document.getElementById("monthChart_exp").style.display = "block";
         document.getElementById("dayChart_div").style.display = "none";
+        document.getElementById("dayChart_exp").style.display = "none";
         document.getElementById("timeChart_div").style.display = "none";
+        document.getElementById("timeChart_exp").style.display = "none";
     }
     function clickbtn3(){
         document.getElementById("causeChart_div").style.display = "none";
+        document.getElementById("causeChart_exp").style.display = "none";
         document.getElementById("monthChart_div").style.display = "none";
+        document.getElementById("monthChart_exp").style.display = "none";
         document.getElementById("dayChart_div").style.display = "block";
+        document.getElementById("dayChart_exp").style.display = "block";
         document.getElementById("timeChart_div").style.display = "none";
+        document.getElementById("timeChart_exp").style.display = "none";
     }
     function clickbtn4(){
         document.getElementById("causeChart_div").style.display = "none";
+        document.getElementById("causeChart_exp").style.display = "none";
         document.getElementById("monthChart_div").style.display = "none";
+        document.getElementById("monthChart_exp").style.display = "none";
         document.getElementById("dayChart_div").style.display = "none";
+        document.getElementById("dayChart_exp").style.display = "none";
         document.getElementById("timeChart_div").style.display = "block";
+        document.getElementById("timeChart_exp").style.display = "block";
     }
 </script>
 {% endblock %}

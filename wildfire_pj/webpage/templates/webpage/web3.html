@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title> vertical-layout - web3</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="{% static 'web3/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'web3/css/magnific-popup_user.css' %}">
+	<link rel="stylesheet" href="{% static 'web3/css/style.css' %}" />
+	
+	<script src="https://kit.fontawesome.com/c3f278d8fa.js" crossorigin="anonymous"></script>
+
+	<!-- jquery google CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="{% static 'web3/js/isotope.pkgd.min.js' %}"></script>
+	<script src="{% static 'web3/js/jquery.magnific-popup.min.js' %}"></script>
+	<!-- <script defer src="js/main.js"></script> -->
+	<script defer src="{% static 'web3/js/main_func_base.js' %}"></script>
+
+</head>
+
+<body>
+
+	<header>
+		<h1><a href="/">VISION</a></h1>
+		<ul>
+			<li><a href="#"><i class="fab fa-twitter-square"></i> <span>Twitter</span></a></li>
+			<li><a href="#"><i class="fab fa-facebook"></i> <span>Facebook</span></a></li>
+			<li><a href="#"><i class="fas fa-envelope"></i> <span>E-mail</span></a></li>
+		</ul>
+	</header>
+	<!-- ^ = 부모로 돌아가는것 -->
+	<!-- main>section>article*20>div>img[src="img/p$.jpg"][alt="p$.jpg"]+h2>lorem3^plorem7 -->
+	<main>
+		<ul>
+			<li class="on"><a href="*">ALL</a></li>
+			<li><a href=".odd">ODD</a></li>
+			<li><a href=".even">EVEN</a></li>
+		</ul>
+
+		<section>
+			<article class="odd">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p1.jpg' %}" title="캡션 : Lorem ipsum dolor sit amet consectetur adipisicing.">
+						<img src="{% static 'web3/img/p1.jpg' %}" alt="p1.jpg">
+					</a>
+					<h2>Lorem, ipsum dolor.</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+				</div>
+			</article>
+			<article class="even">
+				<div><a class="image-popup-vertical-fit" href="{% static 'web3/img/p2.jpg' %}" title="캡션 : Repudiandae architecto rem alias dignissimos nesciunt aliquam.">
+					<img src="{% static 'web3/img/p2.jpg' %}" alt="p2.jpg">
+				</a>
+					<h2>Vitae, nostrum iusto.</h2>
+					<p>Repudiandae architecto rem alias dignissimos nesciunt aliquam.</p>
+				</div>
+			</article>
+			<article class="odd">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p3.jpg' %}" title="캡션 : Accusamus fugit a veniam, aperiam quaerat voluptatibus.">
+						<img src="{% static 'web3/img/p3.jpg' %}" alt="p3.jpg">
+					</a>
+					<h2>Pariatur, alias ullam?</h2>
+					<p>Accusamus fugit a veniam, aperiam quaerat voluptatibus.</p>
+				</div>
+			</article>
+			<article class="even">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p4.jpg' %}" title="캡션 : Ipsum nihil a nobis explicabo optio dicta!">
+						<img src="{% static 'web3/img/p4.jpg' %}" alt="p4.jpg">
+					</a>
+					<h2>Vitae, maiores odio?</h2>
+					<p>Ipsum nihil a nobis explicabo optio dicta!</p>
+				</div>
+			</article>
+			<article class="odd">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p5.jpg' %}" title="캡션 : Ducimus sunt, exercitationem dolorem quasi accusantium magni.">
+						<img src="{% static 'web3/img/p5.jpg' %}" alt="p5.jpg">
+					</a>
+					<h2>Dolores, quia sint?</h2>
+					<p>Ducimus sunt, exercitationem dolorem quasi accusantium magni.</p>
+				</div>
+			</article>
+			<article class="even">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p6.jpg' %}" title="캡션 : Commodi ad est itaque doloremque, id inventore.">
+						<img src="{% static 'web3/img/p6.jpg' %}" alt="p6.jpg">
+					</a>
+					<h2>Sit, eligendi tempora.</h2>
+					<p>Commodi ad est itaque doloremque, id inventore.</p>
+				</div>
+			</article>
+			<article class="odd">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p7.jpg' %}" title="캡션 : Culpa cumque voluptatum, illo tempora vero sint.">
+						<img src="{% static 'web3/img/p7.jpg' %}" alt="p7.jpg">
+					</a>
+					<h2>Consequatur, autem accusamus.</h2>
+					<p>Culpa cumque voluptatum, illo tempora vero sint.</p>
+				</div>
+			</article>
+			<article class="even">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p8.jpg' %}" title="캡션 : Quod perferendis quisquam magnam laudantium necessitatibus ut?">
+						<img src="{% static 'web3/img/p8.jpg' %}" alt="p8.jpg">
+					</a>
+					<h2>Sapiente, nam voluptatum.</h2>
+					<p>Quod perferendis quisquam magnam laudantium necessitatibus ut?</p>
+				</div>
+			</article>
+			<article class="odd">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p9.jpg' %}" title="캡션 : Debitis dolorum labore perspiciatis aspernatur ullam corporis!">
+						<img src="{% static 'web3/img/p9.jpg' %}" alt="p9.jpg">
+					</a>
+					<h2>Fuga, repudiandae eligendi.</h2>
+					<p>Debitis dolorum labore perspiciatis aspernatur ullam corporis!</p>
+				</div>
+			</article>
+			<article class="even">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p10.jpg' %}" title="캡션 : Iste, odio aspernatur esse a voluptates quae.">
+						<img src="{% static 'web3/img/p10.jpg' %}" alt="p10.jpg">
+					</a>
+					<h2>Fuga, officia culpa.</h2>
+					<p>Iste, odio aspernatur esse a voluptates quae.</p>
+				</div>
+			</article>
+			<article class="odd">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p11.jpg' %}" title="캡션 : Quo eligendi voluptatem corrupti qui, accusantium eius.">
+						<img src="{% static 'web3/img/p11.jpg' %}" alt="p11.jpg">
+					</a>
+					<h2>Esse, aliquam culpa.</h2>
+					<p>Quo eligendi voluptatem corrupti qui, accusantium eius.</p>
+				</div>
+			</article>
+			<article class="even">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p12.jpg' %}" title="캡션 : Ipsa ratione laborum in necessitatibus repellendus odio.">
+						<img src="{% static 'web3/img/p12.jpg' %}" alt="p12.jpg">
+					</a>
+					<h2>Consequatur, fugiat laborum?</h2>
+					<p>Ipsa ratione laborum in necessitatibus repellendus odio.</p>
+				</div>
+			</article>
+			<article class="odd">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p13.jpg' %}" title="캡션 : Fuga quos ipsam ea sapiente, iste tempora.">
+						<img src="{% static 'web3/img/p13.jpg' %}" alt="p13.jpg">
+					</a>
+					<h2>Alias, fugiat distinctio?</h2>
+					<p>Fuga quos ipsam ea sapiente, iste tempora.</p>
+				</div>
+			</article>
+			<article class="even">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p14.jpg' %}" title="캡션 : Minima ea pariatur aliquid, id recusandae asperiores.">
+						<img src="{% static 'web3/img/p14.jpg' %}" alt="p14.jpg">
+					</a>
+					<h2>Nostrum, recusandae a!</h2>
+					<p>Minima ea pariatur aliquid, id recusandae asperiores.</p>
+				</div>
+			</article>
+			<article class="odd">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p15.jpg' %}" title="캡션 : Sunt pariatur commodi aut molestias nihil iste.">
+						<img src="{% static 'web3/img/p15.jpg' %}" alt="p15.jpg">
+					</a>
+					<h2>Sequi, rem porro.</h2>
+					<p>Sunt pariatur commodi aut molestias nihil iste.</p>
+				</div>
+			</article>
+			<article class="even">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p16.jpg' %}" title="캡션 : Quo laboriosam reiciendis tempora quae non natus!">
+						<img src="{% static 'web3/img/p16.jpg' %}" alt="p16.jpg">
+					</a>
+					<h2>Quos, in quis.</h2>
+					<p>Quo laboriosam reiciendis tempora quae non natus!</p>
+				</div>
+			</article>
+			<article class="odd">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p17.jpg' %}" title="캡션 : Vel deleniti quibusdam ipsum impedit libero incidunt.">
+						<img src="{% static 'web3/img/p17.jpg' %}" alt="p17.jpg">
+					</a>
+					<h2>Modi, voluptate ducimus.</h2>
+					<p>Vel deleniti quibusdam ipsum impedit libero incidunt.</p>
+				</div>
+			</article>
+			<article class="even">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p18.jpg' %}" title="캡션 : Atque sequi eligendi dolorum, magnam omnis quisquam!">
+						<img src="{% static 'web3/img/p18.jpg' %}" alt="p18.jpg">
+					</a>
+					<h2>Dolor, animi. Est!</h2>
+					<p>Atque sequi eligendi dolorum, magnam omnis quisquam!</p>
+				</div>
+			</article>
+			<article class="odd">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p19.jpg' %}" title="캡션 : Quas id dolor maxime? Quos, iusto quisquam?">
+						<img src="{% static 'web3/img/p19.jpg' %}" alt="p19.jpg">
+					</a>
+					<h2>Tempore, unde voluptatem?</h2>
+					<p>Quas id dolor maxime? Quos, iusto quisquam?</p>
+				</div>
+			</article>
+			<article class="even">
+				<div>
+					<a class="image-popup-vertical-fit" href="{% static 'web3/img/p20.jpg' %}" title="캡션 : Ipsum quasi, cum iure pariatur autem odio.">
+						<img src="{% static 'web3/img/p20.jpg' %}" alt="p20.jpg">
+					</a>
+					
+					<h2>Magni, autem voluptates?</h2>
+					<p>Ipsum quasi, cum iure pariatur autem odio.</p>
+				</div>
+			</article>
+		</section>
+	</main>
+</body>
+
+</html>

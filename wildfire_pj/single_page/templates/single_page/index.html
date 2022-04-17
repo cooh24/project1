@@ -33,7 +33,6 @@
 
 		<!-- Wrapper -->
 			<div id="wrapper">
-
 				<!-- Intro -->
 					<section id="intro" class="wrapper style1 fullscreen fade-up">
 						<div class="inner">
@@ -98,11 +97,11 @@
 							</div>
 						</section>
 						<section>
-							<a href="/portfolio/port5/" class="image"><img src="{% static '' %}" alt="" data-position="25% 25%" /></a>
+							<a href="/portfolio/port5/" class="image"><img src="{% static 'single_page/images/dashboard.png' %}" alt="" data-position="25% 25%" /></a>
 							<div class="content">
 								<div class="inner">
 									<h2>산불 데이터분석 대시보드</h2>
-									<p>산불 관련 공공API 활용하여 인사이트를 보여주는 대시보드 구현</p>
+									<p>산불 관련 공공API 데이터분석 및 인사이트를 보여주는 대시보드 구현</p>
 									<ul class="actions">
 										<li><a href="/portfolio/port5/" class="button">Learn more</a></li>
 									</ul>
@@ -114,14 +113,19 @@
 				<!-- Two -->
 					<section id="two" class="wrapper style3 fade-up">
 						<div class="inner">
-							<h2>개발자 정준모</h2>
-							<p>취업을 위해 준비해야할 것들</p>
+							<h2>About me</h2>
+							<p>데이터분석을 활용한 웹서비스 개발자로 이직을 준비중인 정준모입니다.</p>
 							<div class="features">
 								<section>
+									<span class="icon solid major fa-link"></span>
+									<h3>Introduce.</h3>
+									<p>직업훈련을 통하여 개발자로의 비전을 두고 1차 프로젝트를 하며 프론트엔드와 백엔드 개발과 aws EC2서버를 활용한 웹서비스를 제공하는 것을 목표로 두고 열심히 공부하고 있습니다.</p>
+								</section>
+								<section>
 									<span class="icon solid major fa-code"></span>
-									<h3>이력</h3>
-									<p>내용1</p>
-									<p>내용2</p>
+									<h3>Skils.</h3>
+									<p>HTML, CSS, JS</p>
+									<p>Python</p>
 								</section>
 <!-- 								<section>
 									<span class="icon solid major fa-lock"></span>
@@ -129,20 +133,14 @@
 									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
 								</section> -->
 								<section>
-									<span class="icon solid major fa-cog"></span>
-									<h3>메타인지</h3>
-									<p>그날 공부한 내용에 대하여 스스로에게 적극적인 질문<br><br>
-										앞으로 배울 것들에 대한 관심과 적극적인 배움의 자세</p>
-								</section>
-								<section>
 									<span class="icon solid major fa-desktop"></span>
-									<h3>아웃풋</h3>
-									<p>실제 나의 역량을 나타낼 수 있는<br>프로젝트&포트폴리오 준비</p>
+									<h3>Work Experience.</h3>
+									<p>첫 페이지를 추가하고 싶습니다.</p>
 								</section>
 								<section>
-									<span class="icon solid major fa-link"></span>
-									<h3>취업연계</h3>
-									<p>직업훈련으로 끝나는 것이 아닌 취업으로 연결</p>
+									<span class="icon solid major fa-cog"></span>
+									<h3>Education.</h3>
+									<p>2008.03~2015.02<br>강릉원주대학교 산업정보경영공학과</p>
 								</section>
 <!-- 								<section>
 									<span class="icon major fa-gem"></span>
@@ -204,7 +202,7 @@
 											<ul class="icons">
 												<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> -->
 												<!-- <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li> -->
-												<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+												<li><a href="https://github.com/cooh24/project1" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 												<!-- <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li> -->
 												<!-- <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li> -->
 											</ul>
@@ -214,7 +212,6 @@
 							</div>
 						</div>
 					</section>
-
 			</div>
 
 		<!-- Footer -->
@@ -224,16 +221,48 @@
 						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</div>
+				<a href="#intro" class="btn_gotop" id="click">
+					<span class="fas fa-sort-up">
+					</span>
+				  </a>
 			</footer>
-
+			<style> 
+				.btn_gotop { 
+				display: block; 
+				position: fixed; 
+				bottom: 35px; /* 탑버튼을 화면의 가장 아래에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
+				right: 30px; /* 탑버튼을 화면의 가장 오른쪽에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
+				z-index: 999; 
+				/* border: 1px solid rgba(0,0,0,0.25);  */
+				outline: none; 
+				background-color: rgba(255,255,255,0.5); 
+				color: rgba(0,0,0,0.7); 
+				cursor: pointer; 
+				padding: 10px 20px; 
+				border-radius: 100%; 
+				} 
+			</style>  
+			<script>
+				$(window).scroll(function(){
+					if ($(this).scrollTop() > 300){
+						$('.btn_gotop').show();
+					} else{
+						$('.btn_gotop').hide();
+					}
+				});
+				$('.btn_gotop').click(function(){
+					$('html, body').animate({scrollTop:0},400);
+					return false;
+				});
+			</script>
 		<!-- Scripts -->
-			<script src="{% static 'single_page/js/jquery.min.js' %}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+			<!-- <script src="{% static 'single_page/js/jquery.min.js' %}"></script> -->
 			<script src="{% static 'single_page/js/jquery.scrollex.min.js' %}"></script>
 			<script src="{% static 'single_page/js/jquery.scrolly.min.js' %}"></script>
 			<script src="{% static 'single_page/js/browser.min.js' %}"></script>
 			<script src="{% static 'single_page/js/breakpoints.min.js' %}"></script>
 			<script src="{% static 'single_page/js/util.js' %}"></script>
 			<script src="{% static 'single_page/js/main.js' %}"></script>
-
 	</body>
 </html>

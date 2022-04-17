@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기업형 웹 페이지 - web1</title>
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{% static '\web1\css\style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <h1><a href="/">VISION</a></h1>
+
+            <ul id="gnb">
+                <li><a href="{% static 'web1/07_business_card/member1.html' %}">디지털 명함</a></li>
+                <li><a href="{% static 'web1/responsbility/response_basic.html' %}">반응형기본</a></li>
+                <li><a href="{% static 'web1/responsbility/response_orient.html' %}">반응형오리엔트</a></li>
+                <li><a href="#">COMMUNITY</a></li>
+                <li><a href="#">LOCATION</a></li>
+            </ul>
+
+            <ul class="util">
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Join</a></li>
+                <li><a href="#">Sitemap</a></li>
+            </ul>
+        </div>
+    </header>
+    <figure>
+        <img src="{% static 'web1/images/coding.jpg' %}"></img>
+        <div class="inner">
+            <!-- 기존 문구 -->
+            <h1>VISION</h1>
+            <p>
+                keyword : <br>
+                1. 상상<br>
+                2. 미래의 전망<br>
+                3. 시야<br>
+                4. 마블영화 최고의 A.I<br>
+            </p>
+                <a href="#">view detail</a>
+        </div>
+    </figure>
+
+    <section>
+        <div class="inner">
+            <h1>RECENT NEWS</h1>
+            <div class="wrap">
+                <article>
+                    <div class="pic">
+                        <img src="{% static 'web1/images/web_profile.png' %}" alt="1번째 콘텐츠 이미지">
+                    </div>
+                    <h2><a href="{% static 'web1/07_business_card/member1.html' %}">Vision Project1</a></h2>
+                    <p>프로필카드 제작</p>
+                </article>
+                <article>
+                    <div class="pic">
+                        <img src="{% static 'web1/images/web_page.png' %}" alt="2번째 콘텐츠 이미지">
+                    </div>
+                    <h2><a href="#">Vision Project2</a></h2>
+                    <p>기업형 웹페이지 제작</p>
+                </article>
+                <article>
+                    <div class="pic">
+                        <img src="{% static 'web1/images/news3.jpg' %}" alt="3번째 콘텐츠 이미지">
+                    </div>
+                    <h2><a href="#">Vision Project3</a></h2>
+                    <p>빅데이터 1차 프로젝트</p>
+                </article>
+                <article>
+                    <div class="pic">
+                        <img src="{% static 'web1/images/news4.jpg' %}" alt="4번째 콘텐츠 이미지">
+                    </div>
+                    <h2><a href="#">Vision Project4</a></h2>
+                    <p>빅데이터 2차 프로젝트</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="inner">
+            <div class="upper">
+                <h1>VISION</h1>
+                <ul>
+                    <li><a href="#">Policy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Family Site</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+
+            <div class="lower">
+                <address>
+                    강원 강릉시<br>
+                    TEL : 033-111-1234      C.P : 010-1234-5678
+                </address>
+                <p>
+                    2020 VISION &copy; copyright all right reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

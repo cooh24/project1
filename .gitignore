@@ -134,3 +134,12 @@ secret_key.txt
 __pycache__
 migrations/
 _media/
+_static/
+
+# 도커관련
+Dockerfile
+requirements.txt
+docker-compose.yml
+docker-compose.dev.yml
+envs/
+nginx/
