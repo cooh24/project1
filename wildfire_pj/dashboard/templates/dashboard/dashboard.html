@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{% static 'classnote/css/classnote-post.css' %}">
+    <link rel="stylesheet" href="{% static 'classnote/css/classnote.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 
@@ -51,22 +51,22 @@
                 </div>
             </div>
             <br/>
-            <div id="causeChart_exp" style="display:block">2016년~2020년까지 5년간 산불원인에 대하여 데이터를 분석해보았다. 이 가운데 산불 발생 원인으로 가장 큰 것은 입산자 산불로 5년간 2852건 중 915건으로 전체의 약32%에 해당한다. 이러한 입산자 산불의 경우 자연발화 산불과는 달리 사람에 의한 산불로써 효과적인 대응방안을 통하여 충분히 예방이 가능한 산불이라고 생각한다. 따라서 입산자 산불이 일어나는 것을 제한하고 통제할 수 있다면 산불의 피해를 근본적으로 차단할 수 있는 방법이 되리라 생각한다.</div>
-            <div id="monthChart_exp" style="display:none">2016년~2020년까지 5년간 월별 산불발생횟수에 대하여 데이터를 분석해보았다. 산불은 3~4월 가장 많이 발생하고 5~9월 점차 줄어드는 추세를 보이다 10월~3월까지 꾸준하게 증가하는 양상을 보인다.</div>
-            <div id="dayChart_exp" style="display:none">2016년~2020년까지 5년간 요일별 산불발생횟수에 대하여 데이터를 분석해보았다. 크게 차이가 나는 부분은 없으나, 대체로 주말인 토요일, 일요일에 발생횟수가 많이 나타나는 것을 확인할 수 있다.</div>
-            <div id="timeChart_exp" style="display:none">2016년~2020년까지 5년간 시간대별 산불발생횟수에 대하여 데이터를 분석해보았다. 오후(14~18시)시간에 가장 발생횟수가 높으며, 정오(11시~13시)에도 오전(6~10시)와 야간(19~05시)와 비교해 확연하게 차이가 있는 것으로 보인다.</div>
+            <div id="causeChart_exp" style="display:block">2016년~2020년까지 5년간 산불원인에 대하여<br> 데이터를 분석해보았다.<br> 이 가운데 산불 발생 원인으로 가장 큰 것은 입산자 산불로 5년간 2852건 중 915건으로 전체의 약32%에 해당한다. 이러한 입산자 산불의 경우 자연발화 산불과는 달리 사람에 의한 산불로써 효과적인 대응방안을 통하여 충분히 예방이 가능한 산불이라고 생각한다.<br> 따라서 입산자 산불이 일어나는 것을 제한하고 통제할 수 있다면 산불의 피해를 근본적으로 차단할 수 있는 방법이 되리라 생각한다.</div>
+            <div id="monthChart_exp" style="display:none">2016년~2020년까지 5년간 월별 산불발생횟수에 대하여<br> 데이터를 분석해보았다.<br> 산불은 각각 3,4월 703건,632건으로 가장 많이 발생하고 5~9월 점차 줄어드는 추세를 보이다 10월~3월까지 꾸준하게 증가하는 양상을 보인다.</div>
+            <div id="dayChart_exp" style="display:none">2016년~2020년까지 5년간 요일별 산불발생횟수에 대하여<br> 데이터를 분석해보았다.<br> 크게 차이가 나는 부분은 없으나, 대체로 주말인 토요일, 일요일에 478건, 432건으로 산불발생이 많이 일어나는 것을 확인할 수 있다.</div>
+            <div id="timeChart_exp" style="display:none">2016년~2020년까지 5년간 시간대별 산불발생횟수에 대하여 데이터를 분석해보았다.<br> 전체 2852건 중 오후(14~18시)시간에 1287건으로 가장 발생횟수가 높으며, 정오(11시~13시)에도 1007건으로 오전(6~10시)와 야간(19~05시)와 비교해 확연하게 차이가 있는 것으로 보인다.</div>
         </div>
     </div>
-    <h3>산불발생의 가장 큰 요인</h3>
+    <!-- <h3>산불발생의 가장 큰 요인</h3> -->
     <div class="row">
-        <div class="col center"><h5>산불발생원인</h5> - 입산자 실화</div>
-        <div class="col"><h5>월별산불발생횟수</h5> - 3~4월</div>
-        <div class="col"><h5>요일별산불발생횟수</h5> - 주말(토,일)</div>
-        <div class="col"><h5>시간대별산불발생횟수</h5> - 오후(14~18시)</div>
+        <div class="col center"><h5>산불 발생원인</h5> - 입산자 실화</div>
+        <div class="col"><h5>월별 산불발생횟수</h5> - 3~4월</div>
+        <div class="col"><h5>요일별 산불발생횟수</h5> - 주말(토,일)</div>
+        <div class="col"><h5>시간대별 산불발생횟수</h5> - 오후(14~18시)</div>
     </div>
     <hr/>
     <h3>결론</h3>
-    <p> 산불 데이터를 분석하며 산불발생의 주 원인은 입산자로 인한 실화로 발생하며, 입산자들이 많이 방문하게 되는 3~4월, 주말, 점심시간대 전후로 산불화재가 많이 발생하고 있다는 결론을 도출하게 되었다. 이러한 것을 통하여, 입산자들이 많이 몰리는 월,요일,시간대에 산불지킴이등 감시할 수 있는 자원을 투입하거나, 산불예방캠페인등 산불에 대한 경각심을 전달할 수 있는 홍보를 통해 우리가 활용할 수 있는 자원들을 적재적소에 집중할 수 있는 방안이 되리라 생각해본다.</p>
+    <p> 산불 데이터를 분석하며 산불발생의 주 원인은 입산자로 인한 실화로 발생하며, 입산자들이 많이 방문하게 되는 3~4월, 주말, 점심시간대 전후로 산불이 많이 발생하고 있다는 결론을 도출하게 되었다. 이러한 것을 통하여, 입산자들이 많이 몰리는 월,요일,시간대에 산불지킴이등 감시할 수 있는 자원을 투입하거나, 산불예방캠페인등 산불에 대한 경각심을 전달할 수 있는 홍보를 통해 우리가 활용할 수 있는 자원들을 적재적소에 집중할 수 있는 방안이 되리라 생각해본다.</p>
     
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

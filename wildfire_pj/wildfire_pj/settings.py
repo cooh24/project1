@@ -107,28 +107,29 @@ WSGI_APPLICATION = 'wildfire_pj.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME' : 'wildfireDB',   #DB명
-        'USER' : 'cooh24',  #개발자 id
-        'PASSWORD' : 'j11031103!@', # 개발자 pw
-        'HOST' : '3.35.234.212',    # 서버 IP
-        'PORT' : '3306', 
-    }
-}
-
-#실제로는 envs폴더의 .env.dev의 값을 불러오기 때문에 뒤쪽에 있는 것은 상관없다.
+# 로컬에서 개발할때 사용
 # DATABASES = {
 #     'default': {
-#         'ENGINE': os.environ.get('SQL_ENGINE', 'django.db.backends.sqlite3'),
-#         'NAME': os.environ.get('SQL_DATABASE', os.path.join(BASE_DIR / 'db.sqlite3')),
-#         'USER': os.environ.get('SQL_USER', 'user'),
-#         'PASSWORD': os.environ.get('SQL_PASSWORD', 'password'),
-#         'HOST': os.environ.get('SQL_HOST', 'localhost'),
-#         'PORT': os.environ.get('SQL_PORT', '5432')  
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME' : 'wildfireDB',   #DB명
+#         'USER' : 'cooh24',  #개발자 id
+#         'PASSWORD' : 'j11031103!@', # 개발자 pw
+#         'HOST' : '3.35.234.212',    # 서버 IP
+#         'PORT' : '3306', 
 #     }
 # }
+
+#실제로는 envs폴더의 .env.dev의 값을 불러오기 때문에 뒤쪽에 있는 것은 상관없다. 도커로 이사하여 배포할때 사용
+DATABASES = {
+    'default': {
+        'ENGINE': os.environ.get('SQL_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.environ.get('SQL_DATABASE', os.path.join(BASE_DIR / 'db.sqlite3')),
+        'USER': os.environ.get('SQL_USER', 'user'),
+        'PASSWORD': os.environ.get('SQL_PASSWORD', 'password'),
+        'HOST': os.environ.get('SQL_HOST', 'localhost'),
+        'PORT': os.environ.get('SQL_PORT', '5432')  
+    }
+}
 pymysql.install_as_MySQLdb()
 
 # Password validation
@@ -195,4 +196,4 @@ SITE_ID = 1
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'none'     #이메일 검증기능
 #로그인 처리 성공후, 이동하는 위치(path)
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/classnote/'

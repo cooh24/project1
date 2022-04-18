@@ -2,40 +2,40 @@
 <footer class="py-5 bg-dark">
     <div class="container">
         <p class="m-0 text-center text-white">
-            Copyright &copy; Do It Django A to Z 2021
+            Copyright &copy; VISION
         </p>
     </div>
     <a href="#" class="btn_gotop" id="click">
         <span class="fas fa-sort-up">
         </span>
       </a>
+      <style> 
+        .btn_gotop { 
+        display: block; 
+        position: fixed; 
+        bottom: 35px; /* 탑버튼을 화면의 가장 아래에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
+        right: 30px; /* 탑버튼을 화면의 가장 오른쪽에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
+        z-index: 999; 
+        /* border: 1px solid rgba(0,0,0,0.25);  */
+        outline: none; 
+        background-color: rgba(100,100,100,0.1); 
+        color: rgba(0,0,0,0.7); 
+        cursor: pointer; 
+        padding: 10px 20px; 
+        border-radius: 100%; 
+        } 
+    </style>  
+    <script>
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 300){
+            $('.btn_gotop').show();
+        } else{
+            $('.btn_gotop').hide();
+        }
+    });
+    $('.btn_gotop').click(function(){
+        $('html, body').animate({scrollTop:0},400);
+        return false;
+    });
+    </script>
 </footer>
-<style> 
-    .btn_gotop { 
-    display: block; 
-    position: fixed; 
-    bottom: 35px; /* 탑버튼을 화면의 가장 아래에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
-    right: 30px; /* 탑버튼을 화면의 가장 오른쪽에서 몇 픽셀 떨어뜨릴 것인지 정하세요*/ 
-    z-index: 999; 
-    /* border: 1px solid rgba(0,0,0,0.25);  */
-    outline: none; 
-    background-color: rgba(100,100,100,0.1); 
-    color: rgba(0,0,0,0.7); 
-    cursor: pointer; 
-    padding: 10px 20px; 
-    border-radius: 100%; 
-    } 
-</style>  
-<script>
-$(window).scroll(function(){
-    if ($(this).scrollTop() > 300){
-        $('.btn_gotop').show();
-    } else{
-        $('.btn_gotop').hide();
-    }
-});
-$('.btn_gotop').click(function(){
-    $('html, body').animate({scrollTop:0},400);
-    return false;
-});
-</script>
